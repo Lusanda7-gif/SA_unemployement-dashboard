@@ -4,20 +4,53 @@
         <title> South Africa Unemployment Dashboard </title>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1> Unemployment in South Africa by Education Level and Gender</h1>
         <nav class="controls">
-             <label for="Select Education">Education level:</label>
-    <select id="Select Education">
+             <label for="SelectEducation">Education level:</label>
+    <select id="SelectEducation">
       <option value="Advanced">Advanced</option>
       <option value="Intermediate">Intermediate</option>
       <option value="Basic">Basic</option>
     </select>
 
-    <label for="Select Year">Year:</label>
-    <select id="Select Year"></select>
+    <label for="SelectYear">Year:</label>
+    <select id="SelectYear"></select>
+  </nav>
+  <main>
 
-        </nav>
+  <section class="indicators">
+
+    <div class="stats">
+      <h3>Average unemployment rate</h3>
+      <p class="percentage" id="avgRate">--</p>
+    </div>
+
+    <div class="stats">
+      <h3>Female-male gap</h3>
+      <p class="percentage" id="genderGap">--</p>
+    </div>
+  </section>
+  <section class="charts">
+      <div class="chart-box">
+        <h3>Unemployment over time</h3>
+        <canvas id="lineChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <h3>By education level</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <h3>Gender gap over time</h3>
+        <canvas id="gapChart"></canvas>
+      </div>
+    </section>
+
+</main>
+     <script src="script.js"></script>
     </body>
 </html>
