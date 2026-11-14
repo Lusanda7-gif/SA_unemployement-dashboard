@@ -1,0 +1,15 @@
+Country Name;Country Code;Series Name;Series Code;2017 [YR2017];2018 [YR2018];2019 [YR2019];2020 [YR2020];2021 [YR2021];2022 [YR2022];2023 [YR2023];2024 [YR2024];2025 [YR2025]
+South Africa;ZAF;Unemployment with advanced education (% of total labor force with advanced education);SL,UEM,ADVN,ZS;9,803;9,486;10,844;11,811;14,783;14,233;13,079;12,771;,,
+South Africa;ZAF;Unemployment with advanced education, female (% of female labor force with advanced education);SL,UEM,ADVN,FE,ZS;11,041;10,89;11,867;13,033;16,045;15,653;14,725;14,42;,,
+South Africa;ZAF;Unemployment with advanced education, male (% of male labor force with advanced education);SL,UEM,ADVN,MA,ZS;8,458;7,962;9,734;10,416;13,383;12,629;11,126;10,651;,,
+South Africa;ZAF;Unemployment with basic education (% of total labor force with basic education);SL,UEM,BASC,ZS;33,947;33,088;35,452;35,917;40,736;40,67;39,378;39,283;,,
+South Africa;ZAF;Unemployment with basic education, female (% of female labor force with basic education);SL,UEM,BASC,FE,ZS;37,176;35,905;38,498;38,438;43,584;44,145;42,733;42,758;,,
+South Africa;ZAF;Unemployment with basic education, male (% of male labor force with basic education);SL,UEM,BASC,MA,ZS;31,5;30,907;33,097;34,063;38,65;38,087;36,86;36,726;,,
+South Africa;ZAF;Unemployment with intermediate education (% of total labor force with intermediate education);SL,UEM,INTM,ZS;27,189;27,841;28,916;29,892;35,336;34,092;33,612;33,911;,,
+South Africa;ZAF;Unemployment with intermediate education, female (% of female labor force with intermediate education);SL,UEM,INTM,FE,ZS;30,659;31,143;32,206;33,4;39,232;37,066;37,616;37,592;,,
+South Africa;ZAF;Unemployment with intermediate education, male (% of male labor force with intermediate education);SL,UEM,INTM,MA,ZS;24,238;25,078;26,127;26,977;32,066;31,546;30,133;30,667;,,
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+Data from database: World Development Indicators;;;;;;;;;;;;
+Last Updated: 11/11/2026;;;;;;;;;;;;
