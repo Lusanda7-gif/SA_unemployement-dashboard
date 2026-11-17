@@ -175,6 +175,69 @@ function updateLineChart() {
 }
 
 
+let barChartObject = null;
+
+function updateBarChart() {
+
+  // Get the selected year
+  const year = parseInt(document.getElementById("SelectYear").value);
+
+  // Education levels to compare
+  const levels = ["Basic", "Intermediate", "Advanced"];
+
+  // Get female and male unemployment rates
+  const femaleData = levels.map(level =>
+    getValue(level, "Female", year)
+  );
+
+  const maleData = levels.map(level =>
+    getValue(level, "Male", year)
+  );
+
+  // Remove the previous chart
+  if (barChartObject) {
+    barChartObject.destroy();
+  }
+
+  // Create the bar chart
+  barChartObject = new Chart(document.getElementById("barChart"), {
+
+    type: "bar",
+
+    data: {
+      labels: levels,
+
+      datasets: [
+        {
+          label: "Female",
+          data: femaleData,
+          backgroundColor: "#e63946"
+        },
+        {
+          label: "Male",
+          data: maleData,
+          backgroundColor: "#1d3557"
+        }
+      ]
+    },
+
+    options: {
+      responsive: true,
+
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Unemployment rate (%)"
+          }
+        }
+      }
+    }
+  });
+}
+
+
 // Load the CSV file
 fetch("unemployment_sa_2017_2024.csv")
 
@@ -248,6 +311,7 @@ fetch("unemployment_sa_2017_2024.csv")
     fillYears();
     updateStatistics();
     updateLineChart();
+    updateBarChart();
   })
 
   .catch(error => {
@@ -259,4 +323,6 @@ fetch("unemployment_sa_2017_2024.csv")
 document.getElementById("SelectEducation")
   .addEventListener("change", updateStatistics);
   document.getElementById("SelectEducation")
-  .addEventListener("change", updateLineChart);
+  .addEventListener("change", updateLineChart);git 
+document.getElementById("SelectYear")
+  .addEventListener("change", updateBarChart);
