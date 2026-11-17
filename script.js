@@ -102,6 +102,78 @@ function updateStatistics() {
     highest ? highest.year : "--";
 }
 
+let lineChartObject = null;
+
+function updateLineChart() {
+
+  // Get selected education level
+  const education = document.getElementById("SelectEducation").value;
+
+  // Collect all available years
+  const years = [];
+
+  records.forEach(record => {
+    if (!years.includes(record.year)) {
+      years.push(record.year);
+    }
+  });
+
+  // Sort years
+  years.sort((a, b) => a - b);
+
+  // Get female and male unemployment values
+  const femaleData = years.map(year =>
+    getValue(education, "Female", year)
+  );
+
+  const maleData = years.map(year =>
+    getValue(education, "Male", year)
+  );
+
+  // Remove the old chart
+  if (lineChartObject) {
+    lineChartObject.destroy();
+  }
+
+  // Create the new line chart
+  lineChartObject = new Chart(document.getElementById("lineChart"), {
+
+    type: "line",
+
+    data: {
+      labels: years,
+
+      datasets: [
+        {
+          label: "Female",
+          data: femaleData,
+          borderColor: "#e63946",
+          tension: 0.3
+        },
+        {
+          label: "Male",
+          data: maleData,
+          borderColor: "#1d3557",
+          tension: 0.3
+        }
+      ]
+    },
+
+    options: {
+      responsive: true,
+
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: "Unemployment rate (%)"
+          }
+        }
+      }
+    }
+  });
+}
+
 
 // Load the CSV file
 fetch("unemployment_sa_2017_2024.csv")
@@ -175,7 +247,7 @@ fetch("unemployment_sa_2017_2024.csv")
     // Fill dropdown and update statistics
     fillYears();
     updateStatistics();
-
+    updateLineChart();
   })
 
   .catch(error => {
@@ -186,3 +258,5 @@ fetch("unemployment_sa_2017_2024.csv")
 // Update statistics when education changes
 document.getElementById("SelectEducation")
   .addEventListener("change", updateStatistics);
+  document.getElementById("SelectEducation")
+  .addEventListener("change", updateLineChart);
