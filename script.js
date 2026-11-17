@@ -238,6 +238,78 @@ function updateBarChart() {
 }
 
 
+let gapChartObject = null;
+
+function updateGapChart() {
+
+  // Get selected education level
+  const education = document.getElementById("SelectEducation").value;
+
+  // Collect all years
+  const years = [];
+
+  records.forEach(record => {
+    if (!years.includes(record.year)) {
+      years.push(record.year);
+    }
+  });
+
+  // Sort years
+  years.sort((a, b) => a - b);
+
+  // Calculate the gender gap for each year
+  const gapData = years.map(year => {
+
+    const female = getValue(education, "Female", year);
+    const male = getValue(education, "Male", year);
+
+    if (female === null || male === null) {
+      return null;
+    }
+
+    return Number((female - male).toFixed(2));
+  });
+
+  // Remove the previous chart
+  if (gapChartObject) {
+    gapChartObject.destroy();
+  }
+
+  // Create the line chart
+  gapChartObject = new Chart(document.getElementById("gapChart"), {
+
+    type: "line",
+
+    data: {
+      labels: years,
+
+      datasets: [
+        {
+          label: "Female minus male",
+          data: gapData,
+          borderColor: "#2a9d8f",
+          backgroundColor: "#2a9d8f",
+          tension: 0.3
+        }
+      ]
+    },
+
+    options: {
+      responsive: true,
+
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: "Gap (percentage points)"
+          }
+        }
+      }
+    }
+  });
+}
+
+
 // Load the CSV file
 fetch("unemployment_sa_2017_2024.csv")
 
@@ -312,6 +384,7 @@ fetch("unemployment_sa_2017_2024.csv")
     updateStatistics();
     updateLineChart();
     updateBarChart();
+    updateGapChart();
   })
 
   .catch(error => {
@@ -326,3 +399,5 @@ document.getElementById("SelectEducation")
   .addEventListener("change", updateLineChart);git 
 document.getElementById("SelectYear")
   .addEventListener("change", updateBarChart);
+  document.getElementById("SelectEducation")
+  .addEventListener("change", updateGapChart);
