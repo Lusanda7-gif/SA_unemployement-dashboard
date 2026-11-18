@@ -14,7 +14,7 @@ function fillYears() {
   const select = document.getElementById("SelectYear");
   const years = [];
 
-  // Get unique years from records
+  // Get different years from records
   records.forEach(record => {
     if (!years.includes(record.year)) {
       years.push(record.year);
@@ -155,9 +155,7 @@ function updateLineChart() {
           data: maleData,
           borderColor: "#1d3557",
           tension: 0.3
-        }
-      ]
-    },
+        } ]},
 
     options: {
       responsive: true,
@@ -166,13 +164,7 @@ function updateLineChart() {
         y: {
           title: {
             display: true,
-            text: "Unemployment rate (%)"
-          }
-        }
-      }
-    }
-  });
-}
+            text: "Unemployment rate (%)" }}} }});}
 
 
 let barChartObject = null;
@@ -221,9 +213,7 @@ console.log("Male data:", maleData);
           label: "Male",
           data: maleData,
           backgroundColor: "#1d3557"
-        }
-      ]
-    },
+        }]},
 
     options: {
       responsive: true,
@@ -234,12 +224,7 @@ console.log("Male data:", maleData);
           title: {
             display: true,
             text: "Unemployment rate (%)"
-          }
-        }
-      }
-    }
-  });
-}
+          }}} }});}
 
 
 let gapChartObject = null;
@@ -294,9 +279,7 @@ function updateGapChart() {
           borderColor: "#2a9d8f",
           backgroundColor: "#2a9d8f",
           tension: 0.3
-        }
-      ]
-    },
+        }]},
 
     options: {
       responsive: true,
@@ -306,12 +289,7 @@ function updateGapChart() {
           title: {
             display: true,
             text: "Gap (percentage points)"
-          }
-        }
-      }
-    }
-  });
-}
+          } }}}});}
 
 
 // Load the CSV file
@@ -371,12 +349,7 @@ fetch("unemployment_sa_2017_2024.csv")
               education: education,
               gender: gender,
               value: value
-            });
-
-          }
-        }
-      });
-    });
+            }); } }}); });
 
     // Display results in console
     console.log("Final records:", records);
