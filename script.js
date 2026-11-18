@@ -181,7 +181,7 @@ function updateBarChart() {
 
   // Get the selected year
   const year = parseInt(document.getElementById("SelectYear").value);
-
+console.log("Selected year:", year);
   // Education levels to compare
   const levels = ["Basic", "Intermediate", "Advanced"];
 
@@ -194,6 +194,10 @@ function updateBarChart() {
     getValue(level, "Male", year)
   );
 
+  // Display data in console for testing
+console.log("Selected year:", year);
+console.log("Female data:", femaleData);
+console.log("Male data:", maleData);
   // Remove the previous chart
   if (barChartObject) {
     barChartObject.destroy();
@@ -396,7 +400,7 @@ fetch("unemployment_sa_2017_2024.csv")
 document.getElementById("SelectEducation")
   .addEventListener("change", updateStatistics);
   document.getElementById("SelectEducation")
-  .addEventListener("change", updateLineChart);git 
+  .addEventListener("change", updateLineChart);
 document.getElementById("SelectYear")
   .addEventListener("change", updateBarChart);
   document.getElementById("SelectEducation")

@@ -111,3 +111,13 @@ main {
     flex-direction: column;
   }
 }
+
+.chart-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.chart-filter select {
+  padding: 6px;
+}
