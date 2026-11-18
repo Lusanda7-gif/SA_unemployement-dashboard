@@ -15,6 +15,7 @@
         </header>
         
         <nav class="controls">
+
              <label for="SelectEducation">Education level:</label>
     <select id="SelectEducation">
       <option value="Advanced">Advanced</option>
@@ -22,21 +23,20 @@
       <option value="Basic">Basic</option>
     </select>
 
-    <label for="SelectYear">Year:</label>
-    <select id="SelectYear"></select>
+
   </nav>
   <main>
 
   <section class="indicators">
 
     <div class="stats">
-      <h3>Average unemployment rate</h3>
+      <h3>Average unemployment over time</h3>
       <p class="percentage" id="avgRate">--</p>
     </div>
 
     <div class="stats">
-      <h3>Female-male gap</h3>
-      <p class="percentage" id="genderGap">--</p>
+      <h3>Highest unemployment year</h3>
+      <p class="percentage" id="highestYear">--</p>
     </div>
   </section>
   <section class="charts">
@@ -45,10 +45,16 @@
         <canvas id="lineChart"></canvas>
       </div>
 
-      <div class="chart-box">
-        <h3>By education level</h3>
-        <canvas id="barChart"></canvas>
-      </div>
+     <div class="chart-box">
+  <h3>By education level</h3>
+
+  <div class="chart-filter">
+    <label for="SelectYear">Year:</label>
+    <select id="SelectYear"></select>
+  </div>
+
+  <canvas id="barChart"></canvas>
+</div>
 
       <div class="chart-box">
         <h3>Gender gap over time</h3>
@@ -57,6 +63,8 @@
     </section>
 
 </main>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
      <script src="script.js"></script>
     </body>
 </html>
